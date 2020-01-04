@@ -13,12 +13,12 @@ public class Robot {
     public static void moveRobot(Robot robot, int toX, int toY) {
         int dX = robot.getX() - toX;
         int dY = robot.getY() - toY;
-        Direction startLook = robot.getDirection();
+        //Direction startLook = robot.getDirection();
         if (dX < 0)  // нужно двигаться вправо
         {
             Direction endLook = Direction.RIGHT;
-            while (startLook != endLook) {
-                startLook = robot.turnRight();
+            while (robot.getDirection() != endLook) {
+                robot.turnRight();
                 System.out.println("Повернул направо");
             }
 
@@ -26,15 +26,15 @@ public class Robot {
         if (dX > 0)  // нужно двигаться влево
         {
             Direction endLook = Direction.LEFT;
-            while (startLook != endLook) {
-                startLook = robot.turnLeft();
+            while (robot.getDirection() != endLook) {
+                robot.turnLeft();
                 System.out.println("Повернул налево");
             }
 
 
         }
         int i = 0;
-        while (x != toX) {
+        while (robot.getX() != toX) {
             robot.stepForward();
             i++;
             //System.out.println("Шаг");
@@ -42,8 +42,8 @@ public class Robot {
         System.out.println("Количество шагов вперед " + i);
         if (dY < 0) {  // нужно двигаться вверх
             Direction endLook = Direction.UP;
-            while (startLook != endLook) {
-                startLook = robot.turnRight();
+            while (robot.getDirection() != endLook) {
+                robot.turnRight();
                 System.out.println("Повернул направо");
             }
 
@@ -52,15 +52,15 @@ public class Robot {
         if (dY > 0)  // нужно двигаться вниз
         {
             Direction endLook = Direction.DOWN;
-            while (startLook != endLook) {
-                startLook = robot.turnRight();
+            while (robot.getDirection() != endLook) {
+                robot.turnRight();
                 System.out.println("Повернул направо");
             }
 
 
         }
         i = 0;
-        while (y != toY) {
+        while (robot.getY() != toY) {
             robot.stepForward();
             i++;
             // System.out.println("Шаг");
@@ -83,39 +83,18 @@ public class Robot {
     }
 
     // методы поворота робота
-    public Direction turnLeft() {
-        int s = direction.ordinal();
-        if (s == 0) s = 4;
-        direction = direction.values()[s - 1];
-        return direction;
+    public void turnLeft() {
+        return ;
     }
 
-    public Direction turnRight() {
-        int s = direction.ordinal();
-        if (s == 3) s = -1;
-        direction = direction.values()[s + 1];
-        return direction;
+    public void turnRight() {
+
+        return;
     }
 
-    public int stepForward() {
-        Direction fDirection = getDirection();
-        if (fDirection == Direction.UP) {
-            y++;
-            return y;
-        }
-        if (fDirection == Direction.DOWN) {
-            y--;
-            return y;
-        }
-        if (fDirection == Direction.RIGHT) {
-            x++;
-            return x;
-        }
-        if (fDirection == Direction.LEFT) {
-            x--;
-            return x;
-        }
-        return 0;
+    public void stepForward() {
+
+        return ;
     }
 
 
