@@ -1,16 +1,21 @@
-import java.sql.SQLOutput;
+import javax.crypto.spec.PSource;
 
 public class Main {
 
 
     public static void main(String[] args) {
 
-        Robot Stepic = new Robot( 1, 3, Direction.LEFT);
+        Robot Stepic = new Robot( -1, 5, Direction.UP);
+        System.out.println("Начальное положение робота");
+        System.out.println(Stepic.getDirection());
+        System.out.println(Stepic.getX() + "   " +Stepic.getY());
+        System.out.println("*************************");
+        Robot.moveRobot(Stepic, 15, 1);
 
-        int n = Robot.moveRobot(Stepic, 10, 7);
-        System.out.println("шагов по оси X" + "\n" + "шагов по оси Y");
-        System.out.println("повернул направо " + n+ "раз");
-
+        System.out.println("**********************************");
+        System.out.println("Конечное положение робота");
+        System.out.println(Stepic.getDirection());
+        System.out.println(Stepic.getX() + "   " +Stepic.getY());
 
     }
 }
